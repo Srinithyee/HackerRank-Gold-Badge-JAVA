@@ -1,0 +1,20 @@
+static boolean isAnagram(String a, String b)
+     {
+        if (a.length() != b.length()) return false;
+        
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        
+        int [] temp = new int [Character.MAX_VALUE]; 
+    //sry, too lazy to calculate ASCII idx of a-z rel. i :)
+        
+        int summ = 0;
+
+        for (int i = 0; i < a.length(); i++){
+            summ += ++temp [a.charAt(i)] <= 0 ? -1 : 1;
+            summ += --temp [b.charAt(i)] >= 0 ? -1 : 1;
+        }
+
+        return summ == 0;
+    }
+
